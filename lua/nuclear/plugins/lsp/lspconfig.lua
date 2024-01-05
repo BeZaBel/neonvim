@@ -76,6 +76,7 @@ return {
                 },
             },
             html = {},
+            rust_analyzer = {},
             marksman = {},
             cssls = {},
             r_language_server = {},

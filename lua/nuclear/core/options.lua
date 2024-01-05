@@ -47,8 +47,8 @@ opt.smarttab = true
 opt.expandtab = true
 
 -- Timeout
-vim.o.timeout = true
-vim.o.timeoutlen = 300
+opt.timeout = true
+opt.timeoutlen = 300
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -61,4 +61,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Vim conceal level
-vim.o.conceallevel = 2
+opt.conceallevel = 2
+
+opt.list = true

@@ -16,7 +16,7 @@ map("n", "<leader>fss", ":w ", { desc = "Save as" })
 --
 
 -- Ask for help!
-map("n", "<leader>h", ":h ", { desc = "Help" })
+map("n", "<leader>H", ":h ", { desc = "Help" })
 
 -- Splits
 map("n", "<leader>wv", vim.cmd.new, { desc = "New buffer on horizontal split" })
