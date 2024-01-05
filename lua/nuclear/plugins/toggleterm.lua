@@ -16,6 +16,7 @@ return { -- Toggle term
             },
         })
         local map = vim.keymap.set
+        map({ "t" }, "<Esc>", [[<C-\><C-n>]])
         local toggleterm = require("toggleterm")
         map({ "n", "v" }, "<leader>etv", function()
             toggleterm.toggle(0, 80, "", "vertical")
