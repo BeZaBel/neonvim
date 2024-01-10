@@ -5,7 +5,7 @@ return {
             icons_enabled = false,
             component_separators = "▓",
             section_separators = "",
-            theme = "onedark",
+            theme = "tokyonight",
         },
     },
 }
