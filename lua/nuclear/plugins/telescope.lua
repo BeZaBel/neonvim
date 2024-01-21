@@ -92,12 +92,12 @@ return {
             ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
             { desc = "Open telescope file browser" }
         )
-        map("n", "<leader>em", "<cmd>Telescope emoji<CR>", { desc = "Open telescope emoji" })
-        map("n", "<leader>en", "<cmd>Telescope notify<cr>", { desc = "Open notifications in telescope" })
+        map("n", "<leader>wem", "<cmd>Telescope emoji<CR>", { desc = "Open telescope emoji" })
+        map("n", "<leader>wen", "<cmd>Telescope notify<cr>", { desc = "Open notifications in telescope" })
         -- live_grep integration
         map("n", "<leader>s/", telescope_live_grep_open_files, { desc = "[S]earch [/] in Open Files" })
         map("n", "<leader>qg", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
-        map("n", "<leader>ef", require("telescope.builtin").find_files, { desc = "Find file in directory" })
+        map("n", "<leader>wef", require("telescope.builtin").find_files, { desc = "Find file in directory" })
         map("n", "<leader>qh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
         map("n", "<leader>qw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
         map("n", "<leader>qr", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })

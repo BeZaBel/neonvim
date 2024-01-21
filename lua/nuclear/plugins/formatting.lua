@@ -8,7 +8,7 @@ return {
             formatters_by_ft = {
                 lua = { "stylua" },
                 rust = { "rustfmt" },
-                markdown = { "prettier" },
+                -- markdown = { "prettier" },
             },
             format_on_save = {
                 lsp_fallback = true,

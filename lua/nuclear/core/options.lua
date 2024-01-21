@@ -63,5 +63,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Vim conceal level
 opt.conceallevel = 2
 
-opt.list = true
+-- opt.list = true
 wopt.listchars = "eol:⮠"

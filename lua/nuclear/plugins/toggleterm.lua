@@ -22,7 +22,7 @@ return { -- Toggle term
             toggleterm.toggle(0, 80, "", "vertical")
         end, { desc = "Open vertical terminal" })
         map({ "n", "v" }, "<leader>ets", function()
-            toggleterm.toggle(0, 17, "", "horizontal")
+            toggleterm.toggle(0, 10, "", "horizontal")
         end, { desc = "Open horizontal terminal" })
         map({ "n", "v" }, "<leader>etf", function()
             toggleterm.toggle()
