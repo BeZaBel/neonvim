@@ -65,3 +65,11 @@ opt.conceallevel = 2
 
 -- opt.list = true
 wopt.listchars = "eol:⮠"
+
+-- opt.winbar = "%=%m %f"
+
+-- Neovide settings
+opt.guifont = "Iosevka NF:h12"
+
+vim.g.neovide_scroll_animation_length = 0.06
+vim.g.neovide_cursor_animation_length = 0.1

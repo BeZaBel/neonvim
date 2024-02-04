@@ -19,7 +19,7 @@ return { -- Toggle term
         map({ "t" }, "<Esc>", [[<C-\><C-n>]])
         local toggleterm = require("toggleterm")
         map({ "n", "v" }, "<leader>etv", function()
-            toggleterm.toggle(0, 80, "", "vertical")
+            toggleterm.toggle(0, 60, "", "vertical")
         end, { desc = "Open vertical terminal" })
         map({ "n", "v" }, "<leader>ets", function()
             toggleterm.toggle(0, 10, "", "horizontal")

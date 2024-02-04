@@ -11,6 +11,12 @@ return {
 
         telescope.setup({
             defaults = {
+                layout_config = {
+                    prompt_position = "top",
+                },
+                sorting_strategy = "ascending",
+                borderchars = { "━", "┃", "━", "┃", "┏", "┓", "┛", "┗" },
+                selection_caret = "▸ ",
                 path_display = { "truncate " },
                 mappings = {
                     i = {
@@ -81,10 +87,12 @@ return {
         map("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
         map("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
         map("n", "<leader>/", function()
-            require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-                winblend = 10,
-                previewer = true,
-            }))
+            require("telescope.builtin").current_buffer_fuzzy_find(
+                -- require("telescope.themes").get_dropdown({
+                --     winblend = 10,
+                --     previewer = true,
+                -- })
+            )
         end, { desc = "[/] Fuzzily search in current buffer" })
         map(
             "n",

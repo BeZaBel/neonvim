@@ -13,15 +13,16 @@ return { -- Indent blankline
             "RainbowViolet",
         }
 
+        local carbon = require("oxocarbon").oxocarbon
         local hooks = require("ibl.hooks")
         hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-            vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#f38ba8" })
-            vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#fab387" })
-            vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#f9e2af" })
-            vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#a6e3a1" })
-            vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#89dceb" })
-            vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#89b4fa" })
-            vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#b4befe" })
+            vim.api.nvim_set_hl(0, "RainbowRed", { fg = carbon.base10 })
+            vim.api.nvim_set_hl(0, "RainbowOrange", { fg = carbon.base12 })
+            vim.api.nvim_set_hl(0, "RainbowYellow", { fg = carbon.base05 })
+            vim.api.nvim_set_hl(0, "RainbowGreen", { fg = carbon.base13 })
+            vim.api.nvim_set_hl(0, "RainbowCyan", { fg = carbon.base08 })
+            vim.api.nvim_set_hl(0, "RainbowBlue", { fg = carbon.base11 })
+            vim.api.nvim_set_hl(0, "RainbowViolet", { fg = carbon.base14 })
         end)
 
         vim.g.rainbow_delimiters = { highlight = highlight }

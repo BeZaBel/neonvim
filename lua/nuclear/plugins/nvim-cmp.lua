@@ -61,6 +61,7 @@ return {
                 { name = "buffer" },
                 { name = "path" },
                 { name = "cmp_nvim_r" },
+                { name = "conjure" },
             },
             formatting = {
                 format = lspkind.cmp_format({

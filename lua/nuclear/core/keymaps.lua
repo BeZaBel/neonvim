@@ -29,3 +29,8 @@ map({ "n", "v" }, "<leader>W", vim.cmd.bd, { desc = "Close current buffer" })
 -- Movement
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Buffer management
+-- map("n", "<C-A-k>", "<cmd>bprev<cr>", { desc = "Move to previous buffer" })
+-- map("n", "<C-A-j>", "<cmd>bnext<cr>", { desc = "Move to next buffer" })
+-- map("n", "<C-A-w>", "<cmd>bd<cr>", { desc = "Move to next buffer" })

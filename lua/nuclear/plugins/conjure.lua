@@ -1,6 +1,11 @@
 return {
     "Olical/conjure",
-    ft = { "lisp", "python", "scheme" },
+    ft = {
+        "lisp",
+        "python",
+        "scheme",
+        -- "rust",
+    },
     dependencies = {
         {
             "PaterJason/cmp-conjure",

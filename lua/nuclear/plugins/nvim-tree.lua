@@ -12,10 +12,10 @@ return {
             on_attach = "default",
             view = {
                 preserve_window_proportions = true,
-                width = 27,
-                side = "right",
+                width = 30,
+                side = "left",
                 float = {
-                    enable = true,
+                    enable = false,
                     open_win_config = {
                         relative = "editor",
                         border = "rounded",
