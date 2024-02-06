@@ -13,16 +13,17 @@ return { -- Indent blankline
             "RainbowViolet",
         }
 
-        local carbon = require("oxocarbon").oxocarbon
+        -- local carbon = require("oxocarbon").oxocarbon
+        local mocha = require("catppuccin.palettes").get_palette "mocha"
         local hooks = require("ibl.hooks")
         hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-            vim.api.nvim_set_hl(0, "RainbowRed", { fg = carbon.base10 })
-            vim.api.nvim_set_hl(0, "RainbowOrange", { fg = carbon.base12 })
-            vim.api.nvim_set_hl(0, "RainbowYellow", { fg = carbon.base05 })
-            vim.api.nvim_set_hl(0, "RainbowGreen", { fg = carbon.base13 })
-            vim.api.nvim_set_hl(0, "RainbowCyan", { fg = carbon.base08 })
-            vim.api.nvim_set_hl(0, "RainbowBlue", { fg = carbon.base11 })
-            vim.api.nvim_set_hl(0, "RainbowViolet", { fg = carbon.base14 })
+            vim.api.nvim_set_hl(0, "RainbowRed", { fg = mocha.red })
+            vim.api.nvim_set_hl(0, "RainbowOrange", { fg = mocha.peach })
+            vim.api.nvim_set_hl(0, "RainbowYellow", { fg = mocha.yellow })
+            vim.api.nvim_set_hl(0, "RainbowGreen", { fg = mocha.green })
+            vim.api.nvim_set_hl(0, "RainbowCyan", { fg = mocha.sky })
+            vim.api.nvim_set_hl(0, "RainbowBlue", { fg = mocha.blue })
+            vim.api.nvim_set_hl(0, "RainbowViolet", { fg = mocha.mauve })
         end)
 
         vim.g.rainbow_delimiters = { highlight = highlight }

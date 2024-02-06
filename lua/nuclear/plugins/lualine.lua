@@ -9,21 +9,21 @@ return {
 
             -- Color table for highlights
             -- stylua: ignore
-        -- local mocha = require("catppuccin.palettes").get_palette "mocha"
-        local carbon = require("oxocarbon").oxocarbon
+        local mocha = require("catppuccin.palettes").get_palette "mocha"
+        -- local carbon = require("oxocarbon").oxocarbon
 
         local colors = {
-            -- bg = mocha.base,
-            -- fg = mocha.text,
-            -- yellow = mocha.yellow,
-            -- cyan = mocha.sky,
-            -- darkblue = mocha.blue,
-            -- green = mocha.green,
-            -- orange = mocha.peach,
-            -- violet = mocha.mauve,
-            -- magenta = mocha.pink,
-            -- blue = mocha.sapphire,
-            -- red = mocha.red,
+            bg = mocha.base,
+            fg = mocha.text,
+            yellow = mocha.yellow,
+            cyan = mocha.sky,
+            darkblue = mocha.blue,
+            green = mocha.green,
+            orange = mocha.peach,
+            violet = mocha.mauve,
+            magenta = mocha.pink,
+            blue = mocha.sapphire,
+            red = mocha.red,
             -- base00 #161616
             -- base01 #262626
             -- base02 #393939
@@ -40,23 +40,23 @@ return {
             -- base13 #42be65
             -- base14 #be95ff
             -- base15 #82cfff
-            color0 = carbon.base00,
-            color1 = carbon.base01,
-            color2 = carbon.base02,
-            color3 = carbon.base03,
-            color4 = carbon.base04,
-            color5 = carbon.base05,
-            color6 = carbon.base06,
-            color7 = carbon.base07,
-            color8 = carbon.base08,
-            color9 = carbon.base09,
-            color10 = carbon.base10,
-            color11 = carbon.base11,
-            color12 = carbon.base12,
-            color13 = carbon.base13,
-            color14 = carbon.base14,
-            color15 = carbon.base15,
-            color16 = carbon.base16,
+            -- color0 = carbon.base00,
+            -- color1 = carbon.base01,
+            -- color2 = carbon.base02,
+            -- color3 = carbon.base03,
+            -- color4 = carbon.base04,
+            -- color5 = carbon.base05,
+            -- color6 = carbon.base06,
+            -- color7 = carbon.base07,
+            -- color8 = carbon.base08,
+            -- color9 = carbon.base09,
+            -- color10 = carbon.base10,
+            -- color11 = carbon.base11,
+            -- color12 = carbon.base12,
+            -- color13 = carbon.base13,
+            -- color14 = carbon.base14,
+            -- color15 = carbon.base15,
+            -- color16 = carbon.base16,
         }
 
         local conditions = {
@@ -83,8 +83,8 @@ return {
                     -- We are going to use lualine_c an lualine_x as left and
                     -- right section. Both are highlighted by c theme .  So we
                     -- are just setting default looks o statusline
-                    normal = { c = { fg = colors.color0, bg = colors.color5 } },
-                    inactive = { c = { fg = colors.color0, bg = colors.color3 } },
+                    normal = { c = { fg = colors.fg, bg = colors.bg } },
+                    inactive = { c = { fg = colors.fg, bg = colors.bg } },
                 },
             },
             sections = {
@@ -122,38 +122,38 @@ return {
             function()
                 return "▊"
             end,
-            color = { fg = colors.color5 }, -- Sets highlighting of component
+            color = { fg = colors.blue }, -- Sets highlighting of component
             padding = { left = 0, right = 1 }, -- We don't need space before this
         })
 
         ins_left({
             -- mode component
             function()
-                return ""
+                return ""
             end,
             color = function()
                 -- auto change color according to neovims mode
                 local mode_color = {
-                    n = colors.color0,
-                    i = colors.color13,
-                    v = colors.color10,
-                    [""] = colors.color11,
-                    V = colors.color11,
-                    c = colors.color12,
-                    no = colors.color10,
-                    s = colors.color15,
-                    S = colors.color15,
-                    [""] = colors.color15,
-                    ic = colors.color8,
-                    R = colors.color14,
-                    Rv = colors.color14,
-                    cv = colors.color10,
-                    ce = colors.color10,
-                    r = colors.color8,
-                    rm = colors.color8,
-                    ["r?"] = colors.color8,
-                    ["!"] = colors.color10,
-                    t = colors.color10,
+                    n = colors.red,
+                    i = colors.green,
+                    v = colors.blue,
+                    [""] = colors.blue,
+                    V = colors.blue,
+                    c = colors.magenta,
+                    no = colors.red,
+                    s = colors.orange,
+                    S = colors.orange,
+                    [""] = colors.orange,
+                    ic = colors.yellow,
+                    R = colors.violet,
+                    Rv = colors.violet,
+                    cv = colors.red,
+                    ce = colors.red,
+                    r = colors.cyan,
+                    rm = colors.cyan,
+                    ["r?"] = colors.cyan,
+                    ["!"] = colors.red,
+                    t = colors.red,
                 }
                 return { fg = mode_color[vim.fn.mode()] }
             end,
@@ -169,21 +169,21 @@ return {
         -- ins_left({
         --     "filename",
         --     cond = conditions.buffer_not_empty,
-        --     color = { fg = colors.color3, gui = "bold" },
+        --     color = { fg = colors.magenta, gui = "bold" },
         -- })
 
         ins_left({ "location" })
 
-        ins_left({ "progress", color = { fg = colors.color0, gui = "bold" } })
+        ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
         ins_left({
             "diagnostics",
             sources = { "nvim_diagnostic" },
             symbols = { error = " ", warn = " ", info = " " },
             diagnostics_color = {
-                color_error = { fg = colors.color10 },
-                color_warn = { fg = colors.color14 },
-                color_info = { fg = colors.color13 },
+                color_error = { fg = colors.red },
+                color_warn = { fg = colors.yellow },
+                color_info = { fg = colors.cyan },
             },
         })
 
@@ -213,7 +213,7 @@ return {
                 return msg
             end,
             icon = " LSP:",
-            color = { fg = "#161616", gui = "bold" },
+            color = { fg = "#ffffff", gui = "bold" },
         })
 
         -- Add components to right sections
@@ -221,20 +221,20 @@ return {
             "o:encoding", -- option component same as &encoding in viml
             fmt = string.upper, -- I'm not sure why it's upper case either ;)
             cond = conditions.hide_in_width,
-            color = { fg = colors.color0, gui = "bold" },
+            color = { fg = colors.green, gui = "bold" },
         })
 
-        -- ins_right({
-        --     "fileformat",
-        --     fmt = string.upper,
-        --     icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-        --     color = { fg = colors.color0, gui = "bold" },
-        -- })
+        ins_right({
+            "fileformat",
+            fmt = string.upper,
+            icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+            color = { fg = colors.green, gui = "bold" },
+        })
 
         ins_right({
             "branch",
             icon = "",
-            color = { fg = colors.color1, gui = "bold" },
+            color = { fg = colors.violet, gui = "bold" },
         })
 
         ins_right({
@@ -242,9 +242,9 @@ return {
             -- Is it me or the symbol for modified us really weird
             symbols = { added = " ", modified = "󰝤 ", removed = " " },
             diff_color = {
-                added = { fg = colors.color13 },
-                modified = { fg = colors.color12 },
-                removed = { fg = colors.color10 },
+                added = { fg = colors.green },
+                modified = { fg = colors.orange },
+                removed = { fg = colors.red },
             },
             cond = conditions.hide_in_width,
         })
@@ -253,10 +253,11 @@ return {
             function()
                 return "▊"
             end,
-            color = { fg = colors.color5 },
+            color = { fg = colors.blue },
             padding = { left = 1 },
         })
 
+        -- Now don't forget to initialize lualine
         lualine.setup(config)
     end,
 
