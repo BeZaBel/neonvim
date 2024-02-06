@@ -3,11 +3,13 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local nvimtree = require("nvim-tree")
-        vim.g.loaded_netrw = 1
-        vim.g.loaded_netrwPlugin = 1
+        -- vim.g.loaded_netrw = 1
+        -- vim.g.loaded_netrwPlugin = 1
         vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#94e2d5 ]])
         vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#94e2d5 ]])
         nvimtree.setup({
+            disable_netrw = false,
+            hijack_netrw = true,
             sort_by = "case_sensitive",
             on_attach = "default",
             view = {
