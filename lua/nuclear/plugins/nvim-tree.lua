@@ -1,95 +1,111 @@
 return {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-        local nvimtree = require("nvim-tree")
-        -- vim.g.loaded_netrw = 1
-        -- vim.g.loaded_netrwPlugin = 1
-        vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#94e2d5 ]])
-        vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#94e2d5 ]])
-        nvimtree.setup({
-            disable_netrw = false,
-            hijack_netrw = true,
-            sort_by = "case_sensitive",
-            on_attach = "default",
-            view = {
-                preserve_window_proportions = true,
-                width = 30,
-                side = "left",
-                float = {
-                    enable = false,
-                    open_win_config = {
-                        relative = "editor",
-                        border = "rounded",
-                        width = 30,
-                        height = 30,
-                        row = 1,
-                        col = 2,
-                    },
-                },
-            },
-            renderer = {
-                group_empty = true,
-                highlight_git = true,
-                icons = {
-                    glyphs = {
-                        folder = {
-                            arrow_closed = "",
-                            arrow_open = "",
-                        },
-                    },
-                },
-            },
-            git = {
-                enable = true,
-            },
-            filters = {
-                dotfiles = true,
-            },
-        })
-        -- Keymaps
-        local map = vim.keymap.set
-        map({ "n", "v" }, "<leader>l", function()
-            local api = require("nvim-tree.api")
-            api.tree.toggle()
-        end, { silent = true })
+	"nvim-tree/nvim-tree.lua",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = function()
+		local nvimtree = require("nvim-tree")
+		-- vim.g.loaded_netrw = 1
+		-- vim.g.loaded_netrwPlugin = 1
+		vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#94e2d5 ]])
+		vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#94e2d5 ]])
+		nvimtree.setup({
+			disable_netrw = false,
+			hijack_netrw = true,
+			sort_by = "case_sensitive",
+			on_attach = "default",
+			view = {
+				preserve_window_proportions = true,
+				width = 30,
+				side = "left",
+				float = {
+					enable = false,
+					open_win_config = {
+						relative = "editor",
+						border = "rounded",
+						width = 30,
+						height = 30,
+						row = 1,
+						col = 2,
+					},
+				},
+			},
+			renderer = {
+				indent_markers = {
+					enable = true,
+					icons = {
+						corner = "╰",
+					},
+				},
+				group_empty = true,
+				highlight_git = true,
+				icons = {
+					web_devicons = {
+						file = {
+							enable = true,
+							color = true,
+						},
+						folder = {
+							enable = true,
+							color = true,
+						},
+					},
+					glyphs = {
+						folder = {
+							arrow_closed = "›",
+							arrow_open = "ˇ",
+						},
+					},
+				},
+			},
+			git = {
+				enable = true,
+			},
+			filters = {
+				dotfiles = true,
+			},
+		})
+		-- Keymaps
+		local map = vim.keymap.set
+		map({ "n", "v" }, "<leader>l", function()
+			local api = require("nvim-tree.api")
+			api.tree.toggle()
+		end, { silent = true })
 
-        -- Autoopen nvim-tree
-        local function open_nvim_tree(data)
-            local real_file = vim.fn.filereadable(data.file) == 1
-            local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+		-- Autoopen nvim-tree
+		local function open_nvim_tree(data)
+			local real_file = vim.fn.filereadable(data.file) == 1
+			local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
-            if not real_file and not no_name then
-                return
-            end
+			if not real_file and not no_name then
+				return
+			end
 
-            require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
-        end
-        vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+			require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
+		end
+		vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
-        -- Allow neovim to close if nvim-tree is the only buffer open
-        vim.api.nvim_create_autocmd("QuitPre", {
-            callback = function()
-                local tree_wins = {}
-                local floating_wins = {}
-                local wins = vim.api.nvim_list_wins()
-                for _, w in ipairs(wins) do
-                    local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
-                    if bufname:match("NvimTree_") ~= nil then
-                        table.insert(tree_wins, w)
-                    end
-                    if vim.api.nvim_win_get_config(w).relative ~= "" then
-                        table.insert(floating_wins, w)
-                    end
-                end
-                if 1 == #wins - #floating_wins - #tree_wins then
-                    for _, w in ipairs(tree_wins) do
-                        vim.api.nvim_win_close(w, true)
-                    end
-                end
-            end,
-        })
+		-- Allow neovim to close if nvim-tree is the only buffer open
+		vim.api.nvim_create_autocmd("QuitPre", {
+			callback = function()
+				local tree_wins = {}
+				local floating_wins = {}
+				local wins = vim.api.nvim_list_wins()
+				for _, w in ipairs(wins) do
+					local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
+					if bufname:match("NvimTree_") ~= nil then
+						table.insert(tree_wins, w)
+					end
+					if vim.api.nvim_win_get_config(w).relative ~= "" then
+						table.insert(floating_wins, w)
+					end
+				end
+				if 1 == #wins - #floating_wins - #tree_wins then
+					for _, w in ipairs(tree_wins) do
+						vim.api.nvim_win_close(w, true)
+					end
+				end
+			end,
+		})
 
-        -- require("transparent").clear_prefix("NvimTree_")
-    end,
+		-- require("transparent").clear_prefix("NvimTree_")
+	end,
 }
