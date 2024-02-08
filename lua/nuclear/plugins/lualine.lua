@@ -213,7 +213,7 @@ return {
                 return msg
             end,
             icon = " LSP:",
-            color = { fg = "#ffffff", gui = "bold" },
+            color = { fg = colors.fg, gui = "bold" },
         })
 
         -- Add components to right sections
@@ -260,15 +260,4 @@ return {
         -- Now don't forget to initialize lualine
         lualine.setup(config)
     end,
-
-    -- Now don't forget to initialize lualine
-
-    -- opts = {
-    --     options = {
-    --         icons_enabled = true,
-    --         component_separators = "▓",
-    --         section_separators = "",
-    --         theme = "catppuccin",
-    --     },
-    -- },
 }

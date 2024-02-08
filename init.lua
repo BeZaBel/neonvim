@@ -15,6 +15,3 @@
 
 -- Load core configuration
 require("nuclear.core")
-
--- modeline
--- vim: ts=2 sts=2 sw=2 et

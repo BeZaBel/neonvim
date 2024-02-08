@@ -12,8 +12,8 @@ local wopt = vim.wo
 opt.hlsearch = true
 
 -- Linenumbers
-wopt.number = true
-wopt.relativenumber = true
+opt.number = true
+opt.relativenumber = true
 
 -- Ensure mouse is enabled
 opt.mouse = "a"
@@ -73,3 +73,15 @@ opt.guifont = "Iosevka NF:h12"
 
 vim.g.neovide_scroll_animation_length = 0.06
 vim.g.neovide_cursor_animation_length = 0.1
+
+opt.hidden = true
+opt.path = "**"
+
+vim.g.netrw_bufsettings = "noma,nomod,nu,nowrap,ro,nobl"
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function()
+        vim.wo.number = true
+    end,
+})

@@ -96,7 +96,7 @@ return {
         end, { desc = "[/] Fuzzily search in current buffer" })
         map(
             "n",
-            "<leader>eb",
+            "<leader>web",
             ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
             { desc = "Open telescope file browser" }
         )
