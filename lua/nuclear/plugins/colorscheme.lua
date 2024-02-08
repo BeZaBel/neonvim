@@ -12,7 +12,7 @@ return {
         priority = 1000,
         config = function()
             require("catppuccin").setup({
-                flavour = "mocha",
+                flavour = "latte",
                 styles = {
                     comments = { "italic" },
                     conditionals = { "italic" },
@@ -20,6 +20,10 @@ return {
                 term_colors = true,
                 transparent_background = false,
                 color_overrides = {
+                    latte = {
+                        crust = "#f4f4f4",
+                        base = "#ffffff",
+                    },
                     mocha = {
                         base = "#161616",
                         mantle = "#262626",
