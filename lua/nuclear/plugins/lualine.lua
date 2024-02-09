@@ -10,11 +10,11 @@ return {
             -- Color table for highlights
             -- stylua: ignore
         local mocha = require("catppuccin.palettes").get_palette "mocha"
-        -- local carbon = require("oxocarbon").oxocarbon
+        local carbon = require("oxocarbon").oxocarbon
 
         local colors = {
-            bg = mocha.base,
-            fg = mocha.text,
+            bg = carbon.base00,
+            fg = carbon.base05,
             yellow = mocha.yellow,
             cyan = mocha.sky,
             darkblue = mocha.blue,
